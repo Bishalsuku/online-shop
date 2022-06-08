@@ -1,0 +1,114 @@
+.signup-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signup-page {
+  width: 25%;
+  background: rgb(255, 255, 255);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.45);
+}
+.signup-page form {
+  text-align: center;
+  padding: 40px;
+}
+.signup-page input {
+  width: 270px;
+  text-align: center;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgb(0, 0, 0);
+  font-size: 16px;
+  font-weight: 200px;
+  padding: 10px 0;
+  transition: border 0.5s;
+  outline: none;
+  color: rgb(0, 0, 0);
+}
+.signup-page button {
+  border: none;
+  width: 190px;
+  background: rgb(33, 33, 56);
+  color: white;
+  font-size: 16px;
+  line-height: 25px;
+  padding: 10px 0;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.signup-page button:hover {
+  color: #fff;
+  background-color: black;
+}
+.signup-page a {
+  color: black;
+  text-decoration: blink;
+}
+.signup-page a:hover {
+  color: rgb(34, 34, 34);
+}
+.signup-page #msg {
+  visibility: hidden;
+  min-width: 250px;
+  background-color: yellow;
+  color: #000;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  right: 30%;
+  top: 30px;
+  font-size: 17px;
+  margin-right: 30px;
+}
+.signup-page #msg.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadein {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 30px;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    top: 30px;
+    opacity: 1;
+  }
+  to {
+    top: 0;
+    opacity: 0;
+  }
+}

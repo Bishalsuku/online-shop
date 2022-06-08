@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}In CART{% endblock %}
+{% block body %}
+
+{% for cart in carts %}
+<div class="big-box-cart">
+	<div class="big-box-cart-cont">
+		<div class="p">
+        	{%if cart.item.image %}
+			<img src="{{cart.item.image.url}}" style=" float: left; padding: 10px;" width="300" height="200">
+			{% endif %}
+			<div class="wrapper">
+				<div class="item-name">{{cart.item.name}}<br>
+					<div class="red-text">Rs. {{cart.item.price}}</div>
+				</div>			
+				<form action="https://uat.esewa.com.np/epay/main" method="POST">
+					<input value="{{cart.item.price}}" name="tAmt" type="hidden">
+					<input value="{{cart.item.price}}" name="amt" type="hidden">
+					<input value="0" name="txAmt" type="hidden">
+					<input value="0" name="psc" type="hidden">
+					<input value="0" name="pdc" type="hidden">
+					<input value="EPAYTEST" name="scd" type="hidden">
+					<input value="{{random}}" name="pid" type="hidden">
+					<input value="http://127.0.0.1:8000/success/?q={{cart.item.id}}" type="hidden" name="su">
+					<input value="http://127.0.0.1:8000/fail/?q=fu" type="hidden" name="fu">
+					<center> <input value="Buy-Now" type="submit" class="item-btn" > </center>
+				</form>
+				<a href="{% url 'cartdelete' cart.id %}">							
+					<center><input type="Submit" class="item-remove" value="Remove"></a></center>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+{% empty %}
+<center>
+		<h1 class="item-name">No item in cart</h1>
+</center>
+{%endfor%}
+
+
+
+{% endblock %}

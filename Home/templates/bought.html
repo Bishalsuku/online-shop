@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Bought{% endblock %}
+{% block body %}
+
+
+
+{% for cart in carts %}
+<div class="big-box-cart">
+	<div class="big-box-cart-cont">
+		<div class="p">
+                    {%if cart.item.image %}
+			<img src="{{cart.item.image.url}}" style=" float: left; padding: 10px;" width="300" height="200">
+			{% endif %}
+			<div class="wrapper">
+			<div class="item-name">{{cart.item.name}}<br>
+				<div class="red-text">Rs. {{cart.item.price}}</div>
+				<div class="red-text">{{cart.item.description}}</div>
+			</div>
+			</div>
+							
+			</div>
+		</div>
+	</div>
+</div>
+<br>
+{% empty %}
+<center>
+		<h1 class="item-name">No item in cart</h1>
+</center>
+{%endfor%}
+
+
+
+{% endblock %}

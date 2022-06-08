@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Delete {{cart.name}}{% endblock %}
+
+{% block body %}
+<div class="big-box-cart">
+    <div class="big-box-cart-cont">
+        {%if cart.item.image %}
+        <img src="{{cart.item.image.url}}" width="300" height="200">
+        {% endif %}
+        <div class="item-name">{{cart.item.name}} <br> <br>
+            <form method="POST">
+                    {% csrf_token %}
+                    <input type="Submit" class="item-remove" value="Remove">
+            </form>
+                <a href="{% url 'carts' %}"><button class="item-btn">Cancel</button></a>
+        </div>
+    </div>
+</div>
+    {% endblock %}

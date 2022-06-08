@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block title %}ABS Wears |
+Profile{% endblock %} {% block body %}
+<div class="profile-page">
+  <div class="profile-page-box">
+    <div class="avatar">
+      <img src="{% static '/Images/avatar.png' %}" width="230" height="230" />
+    </div>
+    <br />
+    <div class="profile-detail">
+      <div class="profile-text">
+        Full Name: {{user.first_name}} {{user.last_name}}
+      </div>
+      <br />
+      <div class="profile-text">Email Address: {{user.email}}</div>
+      <div class="profile-text">Address: {{user.address}}</div>
+    </div>
+    <a href="#">
+      <center><button class="item-btn">Edit Profile</button></center>
+    </a>
+    <a href="#">
+      <center><button class="item-btn">Change Password</button></center>
+    </a>
+  </div>
+</div>
+<br />
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %} 
+{% block title %}{{item.name}}{% endblock %} 
+{% block body %}
+<div class="big-box">
+  <div class="big-box-cont">
+    {%if item.image %}
+    <img src="{{item.image.url}}" />
+    {% endif %}
+    <div class="big-box-cont-text">
+      <div class="item-name">
+        {{item.name}}<br />
+        <div class="red-text">Rs. {{item.price}}</div>
+        <div class="s-text">{{item.description}}</div>
+      </div>
+      {%if user.is_authenticated%}
+      <a href="{% url 'addtocart' item.id %}">
+        <center><button class="item-btn">Add to Cart</button></center>
+      </a>
+      <form action="https://uat.esewa.com.np/epay/main" method="POST">
+        <input value="{{item.price}}" name="tAmt" type="hidden" />
+        <input value="{{item.price}}" name="amt" type="hidden" />
+        <input value="0" name="txAmt" type="hidden" />
+        <input value="0" name="psc" type="hidden" />
+        <input value="0" name="pdc" type="hidden" />
+        <input value="EPAYTEST" name="scd" type="hidden" />
+        <input value="{{random}}" name="pid" type="hidden" />
+        <input
+          value="http://127.0.0.1:8000/success/?q=su"
+          type="hidden"
+          name="su"
+        />
+        <input
+          value="http://127.0.0.1:8000/fail/?q=fu"
+          type="hidden"
+          name="fu"
+        />
+        <center>
+          <input value="Buy-Now" type="submit" class="item-btn" />
+        </center>
+      </form>
+      {%endif%}
+    </div>
+  </div>
+</div>
+{% endblock %}

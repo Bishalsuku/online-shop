@@ -1,0 +1,23 @@
+{% extends 'base.html' %} {% load static %} {% block title %}ABS Wear |
+Sign-Up{% endblock %} {% block body %}
+<div class="signup-box">
+  <div class="signup-page">
+    <form method="POST" autocomplete="off">
+      {% csrf_token %}
+      <h2>Sign Up</h2>
+      <br />
+      {{form.first_name}}<br \ /><br \ />
+      {{form.last_name}}<br \ /><br \ />
+      {{form.address}}<br \ /><br \ />
+      {{form.email}}<br \ /><br \ />
+      {{form.username}}<br \ /><br \ />
+      {{form.password}}<br \ /><br \ />
+      {{form.confirm_password}}<br \ /><br \ />
+      <button type="submit" value="Sign up">Signup</button><br /><br />
+      <span class="don-t">Already have account?</span
+      ><a href="{% url 'login' %}">&nbsp;Login</a>
+    </form>
+  </div>
+</div>
+<br />
+{% endblock %}

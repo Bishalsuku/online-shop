@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Add Item{% endblock %}
+
+{% block body %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <center>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </center>
+</form>
+
+{% endblock %}

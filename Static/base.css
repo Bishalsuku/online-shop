@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header-wrapper {
+  max-width: 1700px;
+  margin: auto;
+}
+
+header {
+  padding: 1.5rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+header .nav-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .nav-menu p {
+  cursor: pointer;
+  margin-left: 2rem;
+}
+
+header .nav-menu p:first-child {
+  margin-right: 0;
+}
+
+header .icons img {
+  width: 25px;
+  height: 25px;
+  margin-right: 2rem;
+}
+
+header .icons img:last-child {
+  margin-right: 0;
+}
+
+footer {
+  background: #090a13;
+  color: #fff;
+}
+
+footer .footer-wrapper {
+  max-width: 1700px;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 2rem 0;
+}
+
+footer .footer-wrapper h1 {
+  margin-bottom: 2rem;
+}
+
+footer .footer-wrapper p {
+  margin-bottom: 1rem;
+}
+
+footer .footer-wrapper .fourth-col button {
+  padding: 1rem 2rem;
+  border-radius: 4rem;
+  border-style: none;
+  width: 100%;
+  font-weight: bold;
+}
+
+.foot {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1rem 0;
+  max-width: 1700px;
+  margin: auto;
+}
+
+.foot .copyright {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.foot .media img {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  margin-left: 1rem;
+}
+
+.foot .media img:first-child {
+  margin-left: 0;
+}
+/*# sourceMappingURL=base.css.map */

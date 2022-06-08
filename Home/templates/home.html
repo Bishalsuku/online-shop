@@ -1,0 +1,137 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Home | ABS Wears
+{% endblock %} {% block body %} {% if slug %}<br />
+<center>
+  <h1>{{slug}}</h1>
+</center>
+<br />
+{%endif%} {% if search %}
+<center>
+  <h1>Search Query : {{search}}</h1>
+</center>
+{% endif %}
+<div class="trendingSlider">
+  <div class="slider">
+    {% for i in slides %}
+    <div
+      class="slide"
+      style="
+        background: rgba(0, 0, 0, 0.6) url('{{i.image.url}}');
+        background-blend-mode: darken;
+        background-size: cover;
+      "
+    >
+      <div class="banner">
+        <div class="bannerText">
+          <h1>{{i.title}}</h1>
+          <h3>{{i.description}}</h3>
+          <a href="{% url 'itemlist' %}">Shop Now</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    <div class="controls">
+      <div class="prev">
+        <i class="prevLeft"></i>
+      </div>
+      <div class="next">
+        <i class="nextRight"></i>
+      </div>
+    </div>
+  </div>
+  <div class="indicator"></div>
+</div>
+
+<div class="product-container">
+  <h1>All Products</h1>
+  <p>Contrary to popular belief, Lorem Ipsum is not simply random</p>
+  <p>text. It has roots in a piece of classica</p>
+  <div class="product-nav">
+    <button>Home Appliances</button>
+    <button>Kitchen Appliances</button>
+    <button>Lamps</button>
+  </div>
+
+  <div class="item-box">
+    <div class="item-box-content">
+      {% for item in item_list %}
+      <div class="item-view">
+        {%if item.image %}
+        <a href="{% url 'itemdetail' item.id %}"
+          ><img src="{{item.image.url}}" class="imag" />
+          {% endif %}
+          <div class="item-text">
+            {{ item.name }}<br />
+            Rs. {{ item.price }}
+          </div>
+          <br />
+          {%if user.is_authenticated%}
+          <a href="{% url 'addtocart' item.id %}">
+            <center><button class="item-btn">Add to Cart</button></center>
+          </a>
+          <form action="https://uat.esewa.com.np/epay/main" method="POST">
+            <input value="{{item.price}}" name="tAmt" type="hidden" />
+            <input value="{{item.price}}" name="amt" type="hidden" />
+            <input value="0" name="txAmt" type="hidden" />
+            <input value="0" name="psc" type="hidden" />
+            <input value="0" name="pdc" type="hidden" />
+            <input value="EPAYTEST" name="scd" type="hidden" />
+            <input value="{{random1}}" name="pid" type="hidden" />
+            <input
+              value="http://127.0.0.1:8000/success/?q=su"
+              type="hidden"
+              name="su"
+            />
+            <input
+              value="http://127.0.0.1:8000/fail/?q=fu"
+              type="hidden"
+              name="fu"
+            />
+            <center>
+              <input value="Buy-Now" type="submit" class="item-btn" />
+            </center>
+          </form>
+          {%endif%}
+        </a>
+      </div>
+      {% empty %}
+      <center>
+        <h1 class="item-name">No item Found</h1>
+      </center>
+      {%endfor%}
+    </div>
+  </div>
+</div>
+
+<br />
+
+{% if user.is_authenticated %}
+<div class="flash">Just for You</div>
+<div class="item-box">
+  <div class="item-box-content">
+    {% for item in items %}
+    <div class="item-view">
+      {%if item.image %}
+      <a href="{% url 'itemdetail' item.id %}"
+        ><img src="{{item.image.url}}" class="imag" />
+        {% endif %}
+        <div class="item-text">
+          {{ item.name }}<br />
+          Rs. {{ item.price }}
+        </div>
+        <br />
+        {%if user.is_authenticated%}
+        <a href="{% url 'addtocart' item.id %}">
+          <center><button class="item-btn">Add to Cart</button></center>
+        </a>
+        <a href="{% url 'addtocart' item.id %}">
+          <center><button class="item-btn">Buy Now</button></center>
+        </a>
+        {%endif%}
+      </a>
+    </div>
+    {% empty %}
+    <h1 class="item-name">No item found</h1>
+    {%endfor%}
+  </div>
+</div>
+{% endif %} {% endblock %}

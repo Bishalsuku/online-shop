@@ -1,0 +1,325 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="/static/home.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/about.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/contact.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/profile.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/login.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/signup.css?{% now 'U' %}" />
+    <link rel="stylesheet" href="/static/base.css?{% now 'U' %}" />
+
+    <link rel="icon" type="image" href="{% static '/Images/lo.jpg' %}" />
+  </head>
+
+  <body>
+    {% if messages %} {% for message in messages %}
+    <div class="alert" id="msg" role="alert">{{ message }}</div>
+    {% endfor %} {% endif %}
+    <script>
+      setTimeout(function () {
+        const msg = document.getElementById("msg");
+        msg.style = "opacity: 0;";
+        setTimeout(function () {
+          msg.style.display = "none";
+        }, 500);
+      }, 5000);
+    </script>
+
+    <div class="arrow">
+      <a href="#" title="Back to Top"><span class="angle-up"></span></a>
+    </div>
+
+    <div class="header-wrapper">
+      <header>
+        <h1>BISHAL</h1>
+        <div class="nav-menu">
+          <p>Home</p>
+          <p>Shop</p>
+          <p>Pages</p>
+          <p>Blog</p>
+          <p>Contact</p>
+        </div>
+        <div class="icons">
+          <img src="{% static '/Images/search.svg' %}" />
+          <img src="{% static '/Images/settingIcon.svg' %}" />
+          <img src="{% static '/Images/cart.png' %}" />
+        </div>
+      </header>
+    </div>
+
+    {% comment %}
+    <div class="second">
+      <div class="logoName">
+        <a href="/">
+          <div class="logo">
+            <img src="{% static '/Images/lo.jpg' %}" />
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="searchbar">
+      <form class="search-input" method="GET" action="{% url 'itemlists' %}">
+        {% csrf_token %}
+        <input
+          type="text"
+          autocomplete="off"
+          placeholder="Search over Bishal store..."
+          name="q"
+          onfocus="this.value = '';"
+          onblur="if (this.value == '') {this.value = 'Search over Bishal store...';}"
+          required=""
+        />
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <div class="losi">
+      {% if user.is_authenticated %}
+      <div class="login">
+        <a href="{%url 'profile' %}"
+          ><img
+            src="{% static '/Images/login.svg' %}"
+            title="View Profile"
+            width="30"
+            alt="login"
+        /></a>
+      </div>
+      <div class="login">
+        <a href="{%url 'carts' %}"
+          ><img
+            src="{% static '/Images/cart.svg' %}"
+            title="Cart"
+            width="40"
+            alt="cart"
+        /></a>
+      </div>
+      <!-- <div class="login"> 
+      <a href="{%url 'bought' %}">Bought Items</a>
+    </div> -->
+      <div class="signup">
+        <a href="{% url 'logout' %}"
+          ><img
+            src="{% static '/Images/logout.svg' %}"
+            title="Log-Out"
+            width="30"
+            alt="login"
+        /></a>
+      </div>
+      {% else %}
+      <div class="login">
+        <a href="{% url 'login' %}"
+          ><img
+            src="{% static '/Images/login.svg' %}"
+            title="Log-In"
+            width="30"
+            alt="login"
+        /></a>
+      </div>
+      <div class="signup">
+        <a href="{% url 'login' %}"
+          ><img
+            src="{% static '/Images/cart.svg' %}"
+            title="Cart"
+            width="35"
+            alt="cart"
+        /></a>
+      </div>
+      {% endif %}
+    </div>
+
+    {% endcomment %} {% comment %}
+    <div class="third">
+      <div class="container">
+        <ul class="nav-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'itemlist' %}">Shop</a></li>
+          <li>
+            <a href="#">Categories <i class="down"></i></a>
+            <ul class="dropdown">
+              <div class="jeans-list">
+                <li style="color: white; background: #000">Male Clothing</li>
+                <li><a href="{% url 'itemlisted' 'Coat' %}">Coat</a></li>
+                <li><a href="{% url 'itemlisted' 'Pant' %}">Pants</a></li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Inner-Coat' %}">Inner-Coat</a>
+                </li>
+                <li><a href="{% url 'itemlisted' 'Shirt' %}">Shirt</a></li>
+                <li><a href="{% url 'itemlisted' 'Tie' %}">Tie</a></li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Daura-Suruwal' %}"
+                    >Daura-Suruwal</a
+                  >
+                </li>
+              </div>
+              <div class="ladies-list">
+                <li style="color: white; background: #000">Female Clothing</li>
+                <li><a href="{% url 'itemlisted' 'Sari' %}">Sari</a></li>
+                <li><a href="{% url 'itemlisted' 'Lhenga' %}">Lhenga</a></li>
+                <li><a href="{% url 'itemlisted' 'Kurtha' %}">Kurtha</a></li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Ladies-Jeans' %}"
+                    >Ladies-Jeans</a
+                  >
+                </li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Ladies-Shirt' %}"
+                    >Ladies-Shirt</a
+                  >
+                </li>
+              </div>
+              <div class="kids-list">
+                <li style="color: white; background: #000">Kids Clothing</li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Baby-Fork' %}">Baby-Fork</a>
+                </li>
+                <li>
+                  <a href="{% url 'itemlisted' 'Baby-Pamper' %}">Baby-Pamper</a>
+                </li>
+              </div>
+            </ul>
+          </li>
+          <li><a href="{% url 'about' %}">About Us</a></li>
+          <li><a href="{% url 'contact' %}">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="soci-medi">
+        <img
+          src="{% static '/Images/facebook.svg' %}"
+          width="25"
+          alt="facebook"
+        />
+        <img
+          src="{% static '/Images/twitter.svg' %}"
+          width="25"
+          alt="twitter"
+        />
+        <img
+          src="{% static '/Images/pinterest.svg' %}"
+          width="25"
+          alt="pinterest"
+        />
+        <img
+          src="{% static '/Images/linkedin.svg' %}"
+          width="25"
+          alt="linkedin"
+        />
+      </div>
+    </div>
+
+    {% endcomment %} {% block body %} {% endblock %} {% comment %}
+    <div class="whole">
+      <div class="top">
+        <div class="leftpart">
+          <h1>STAY CONNECTED</h1>
+          <a href="#"
+            ><img
+              src="{% static '/images/face.png' %}"
+              width="40px"
+              height="40px"
+          /></a>
+          <a href="#">
+            <img
+              src="{% static '/images/twitt.png' %}"
+              width="40px"
+              height="40px"
+          /></a>
+          <a href="#"
+            ><img
+              src="{% static '/images/insta.png' %}"
+              width="40px"
+              height="40px"
+          /></a>
+          <h1>PAYMENT METHOD</h1>
+          <img
+            src="{% static '/images/esewa.png' %}"
+            width="40px"
+            height="40px"
+          />
+          <img
+            src="{% static '/images/cash.png' %}"
+            width="40px"
+            height="40px"
+          />
+        </div>
+        <div class="midpart">
+          <h1>BE OUR FRIEND</h1>
+          <input
+            type="text"
+            name="email"
+            placeholder="Enter Your E-mail Here!"
+            autocomplete="off"
+          /><br />
+          <div class="popup">
+            <button onclick="mySub()">Subscribe Now</button>
+            <span class="popuptext" id="myPopup"
+              >Thank You For Subscribing!!!</span
+            >
+          </div>
+        </div>
+        <div class="rightpart">
+          <h1>CONTACT US</h1>
+          <h2>
+            ABSS E-Store<br />
+            Email: info@abss.com
+          </h2>
+          <h2>
+            <p>
+              Byasi-02, Kalighat, Bhaktapur Bagmati Province,<br />
+              Nepal
+            </p>
+          </h2>
+        </div>
+      </div>
+      <div class="bottom">
+        <h1>
+          Copyright © 2021 ABSS E-Store. All rights reserved.<br />
+          All works are property of their respective owners and may not be used
+          elsewhere without written permission.
+        </h1>
+      </div>
+    </div>
+    {% endcomment %} {% comment %}
+    <script src="/static/Js/home.js"></script>
+    {% endcomment %}
+    <footer>
+      <div class="footer-wrapper">
+        <div class="first-col">
+          <h1>Bishal</h1>
+          <p>Bhaktapur,Nepal</p>
+          <p>bishal@gmail.com</p>
+          <p>982683826</p>
+        </div>
+        <div class="sec-col">
+          <h1>Quick Links</h1>
+          <p>Contact Us</p>
+          <p>Careers</p>
+          <p>Portfolios</p>
+        </div>
+        <div class="third-col">
+          <h1>Resources</h1>
+          <p>Privacy Policy</p>
+          <p>FAQ</p>
+        </div>
+        <div class="fourth-col">
+          <h1>Get In Touch</h1>
+          <button>Contact Us</button>
+        </div>
+      </div>
+    </footer>
+    <div class="foot">
+      <div class="copyright">
+        <p>Copyright &copy; 2022 Bishal . All Rights Reserved.</p>
+      </div>
+      <div class="media">
+        <img src="{% static '/Images/facebook.svg' %}" />
+        <img src="{% static '/Images/insta.svg' %}" />
+        <img src="{% static '/Images/tweet.svg' %}" />
+        <img src="{% static '/Images/linkedin.svg' %}" />
+      </div>
+    </div>
+    <script src="/static/Js/home.js"></script>
+  </body>
+</html>

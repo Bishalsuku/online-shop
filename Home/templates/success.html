@@ -1,0 +1,58 @@
+<!-- {{pk}}<br/>
+{{amt}}<br/>
+{{refid}}<br/>
+-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image" href="{% static '/Images/lo.jpg' %}">
+    <title>Item Purchased</title>
+    <style>
+        body{
+            width: 50%;
+            height: 100vh;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .success-card{
+            width: 80%;
+            padding: 1.5rem;
+            background-color: #F0F2F5;
+            border-radius: 3px;
+            text-align: center;
+            width: auto;
+
+        }
+        .success-card img{
+            width: 90px;
+            margin-bottom: 1.5rem;
+        }
+        input, a{
+            padding: 1rem 2rem;
+            border: none;
+            background-color: #17b978;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="success-card">
+        <h1>Item Purchased!</h1>
+        <img src="{% static '/Images/check.svg' %}"><br>
+        <h2>Your Order Details</h2>
+        <h3>Customer Name: {{user.first_name}} {{user.last_name}}<br>
+        Product Name: {{name.name}}<br/>
+        Product ID: {{pk}}<br/>
+        Total Amount: Rs. {{amt}}<br/>
+        Reference ID: {{refid}}</h3>
+        <h4>To Track and for Further information about your order please check your e-mail.....</h4>
+       <a href="/"><input type="submit" value="Back To Shop"></a>
+    </div>    
+</body>
+</html>
+

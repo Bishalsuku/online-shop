@@ -1,0 +1,43 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Shop | ABS Wears{% endblock %} {% block body %} {% if slug %}
+<center>
+  <h1>{{slug}}</h1>
+</center>
+<br />
+{%endif%} {% if search %}
+<center>
+  <h1 class="item-name">
+    {{count2}} of {{count}} items found for "{{search}}"
+  </h1>
+</center>
+{% endif %}
+<div class="item-box">
+  <div class="item-box-content">
+    {% for item in item_list %}
+    <div class="item-view">
+      {%if item.image %}
+      <a href="{% url 'itemdetail' item.id %}"
+        ><img src="{{item.image.url}}" class="imag" />
+        {% endif %}
+        <div class="item-text">
+          {{ item.name }}<br />
+          Rs. {{ item.price }}
+        </div>
+        <br />
+        {%if user.is_authenticated%}
+        <a href="{% url 'addtocart' item.id %}">
+          <center><button class="item-btn">Add to Cart</button></center>
+        </a>
+        <a href="{% url 'addtocart' item.id %}">
+          <center><button class="item-btn">Buy Now</button></center>
+        </a>
+        {%endif%}
+      </a>
+    </div>
+    {% empty %}
+    <center>
+      <h1 class="item-name">No item Found</h1>
+    </center>
+    {%endfor%}
+  </div>
+</div>
+{% endblock %}

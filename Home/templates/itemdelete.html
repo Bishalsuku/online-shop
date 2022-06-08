@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}Delete {{item.name}}{% endblock %}
+
+{% block body %}
+        <h1>
+    Update {{item.name}}</h1>
+        <form method="POST">
+        <center>
+            {% csrf_token %}
+    <input type="Submit" class="btn btn-danger" value="Delete">
+
+        </center>
+    </form><br>
+        <center>
+<a href="{% url 'itemdetail' item.id %}"><button class="btn btn-primary">Cancel</button></a>
+</center>
+
+    {% endblock %}

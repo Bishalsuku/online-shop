@@ -1,0 +1,64 @@
+.contact-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.contact {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.445);
+  margin-bottom: 15px;
+}
+.con {
+  width: 1100px;
+  height: 65vh;
+}
+.con h1 {
+  color: red;
+  font-size: 30px;
+}
+.con p {
+  font-size: 18px;
+  padding-top: 5px;
+}
+.con ul li {
+  list-style: none;
+  margin-top: 12px;
+}
+.ab {
+  width: 700px;
+}
+.for {
+  float: left;
+  width: 200px;
+  margin-top: 15px;
+}
+.cont {
+  float: left;
+  width: 270px;
+  margin-top: 15px;
+}
+.tex {
+  width: 300px;
+  height: 24px;
+}
+.cont input {
+  margin-top: 12px;
+  height: 30px;
+}
+.sub {
+  height: 40px;
+  width: 200px;
+  background-color: rgb(30, 20, 10);
+}
+.sub h3 {
+  color: red;
+}
+.ima {
+  float: left;
+  margin-left: 40px;
+}

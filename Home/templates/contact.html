@@ -1,0 +1,79 @@
+{% extends 'base.html' %} {% load static %} {% block title %}Contact Us | ABS
+Wears{% endblock %} {% block body %}
+<div class="contact-content">
+  <div class="contact">
+    <div class="con">
+      <div class="ab">
+        <h1>Contact Us</h1>
+        <p>
+          We handle all customer contacts by email and we are committed to
+          replying to all questions within 24 hours. Please review our FAQ
+          section for answers to many standard questions.
+        </p>
+      </div>
+      <div class="for">
+        <ul>
+          <li>
+            <h3>Your name:</h3>
+          </li>
+          <li>
+            <h3>E-Mail address:</h3>
+          </li>
+          <li>
+            <h3>Subject:</h3>
+          </li>
+          <li>
+            <h3>Message:</h3>
+          </li>
+        </ul>
+      </div>
+      <div class="cont">
+        <form name="myForm" method="POST" onsubmit="return check()">
+          <input
+            class="tex"
+            type="text"
+            name="fname"
+            id="Name"
+            placeholder="Enter Your Name"
+            onclick="(this.value='')"
+          />
+          <input
+            class="tex"
+            type="text"
+            name="name"
+            id="EMail"
+            placeholder="Enter Your Email"
+            onclick="(this.value='')"
+          />
+          <select>
+            <option value="N/A">Choose one subject</option>
+            <option value="Changes">Changes</option>
+            <option value="Large orders">Large orders</option>
+            <option value="Payments">Payments</option>
+            <option value="Delivery Time">Delivery Time</option>
+            <option value="Product issues">Product issues</option>
+            <option value="Complaints">Complaints</option>
+            <option value="Gift Certificate">Gift Certificate</option>
+            <option value="Others">Others</option>
+          </select>
+          <textarea
+            rows="10"
+            cols="35"
+            name="comment"
+            form="usrform"
+            placeholder="Enter Your Message......."
+            onclick="(this.value='')"
+          ></textarea>
+          <button class="sub" type="submit" value="Submit">
+            <h3>Submit</h3>
+          </button>
+        </form>
+      </div>
+      <div class="ima">
+        <img src="{% static '/Images/16.jpg' %}" height="350" width="550" />
+      </div>
+    </div>
+  </div>
+</div>
+<script src="{% static '/Js/contact.js' %}"></script>
+{% endblock %}

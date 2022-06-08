@@ -1,0 +1,47 @@
+.about-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about {
+  width: 90%;
+}
+.about h1 {
+  color: red;
+  font-weight: bold;
+  font-size: 30px;
+}
+.about h3 {
+  font-size: 25px;
+  padding-top: 5px;
+}
+.about p {
+  font-size: 18px;
+  padding-top: 5px;
+}
+.pre {
+  height: 6vh;
+  width: 900px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: dotted;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 15px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: blue;
+  border-color: black;
+  margin-bottom: 20px;
+}
+.dre {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+.dre img {
+  width: 25rem;
+  height: 26rem;
+  margin-left: 2rem;
+}
